@@ -9,19 +9,6 @@ function App() {
 
   const [todos , setTodos] = useState([
 
-    {
-      id: 1,
-      text: "Estudar",
-      category: "Alta",
-      isCompleted: false
-    },
-
-    {
-      id: 2,
-      text: "Jogar",
-      category: "Baixa",
-      isCompleted: false
-    },
 
   ])
 
