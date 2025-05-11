@@ -8,6 +8,7 @@ import Filter from "./components/Filter";
 
 function App() {
 
+
   const[todos , setTodos] = useState([])
   const[search, setSearch] = useState("");
   const[filter, setFilter] = useState("All");
@@ -40,9 +41,23 @@ function App() {
     <Search search={search} setSearch={setSearch}/>
     <Filter filter={filter} setFilter={setFilter} setSort={setSort}/>
 
+        
       <div className="todo-list">
         {todos
-        .filter((todo) => filter === "All" ?  true: filter == "Completed" ? todo.isCompleted : !todo.isCompleted)
+       .filter((todo) => {
+        if (filter === "All") {
+          console.log(filter)
+          return true;
+        } else if (filter === "Completed") {
+          console.log(filter)
+          return todo.isCompleted;
+        } else if (filter === "In") {
+          console.log(filter)
+          return !todo.isCompleted;
+        } else {
+          return false; // ou false, dependendo do comportamento desejado
+        }
+      })
         .filter((todo) => todo.text.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
         .sort((a , b) => sort ==="Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
         .map((todo) => (
@@ -51,7 +66,7 @@ function App() {
       </div>
         <TodoForm  addTodo={addTodo}/>
   </div>
+  
 
 }
-
 export default App

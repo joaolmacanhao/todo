@@ -8,8 +8,8 @@ const Filter = ({filter, setFilter , setSort}) => {
                 <p>Status:</p>
                 <select value={filter} onChange={(e) => setFilter (e.target.value)}>
                     <option value="All">Todas</option>
-                    <option value="Completed ">Completas</option>
-                    <option value="Incompleted">Incompletas</option>
+                    <option value="Completed">Completas</option>
+                    <option value="In">Incompletas</option>
                 </select>
             </div>
             <div>
