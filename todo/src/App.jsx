@@ -46,13 +46,10 @@ function App() {
         {todos
        .filter((todo) => {
         if (filter === "All") {
-          console.log(filter)
           return true;
         } else if (filter === "Completed") {
           console.log(filter)
-          return todo.isCompleted;
         } else if (filter === "In") {
-          console.log(filter)
           return !todo.isCompleted;
         } else {
           return false; // ou false, dependendo do comportamento desejado
